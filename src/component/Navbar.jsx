@@ -1,12 +1,31 @@
+import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import logos from "./../img/logo2.png";
 
 const Navbars = () => {
+  const [changeColor, setChangColor] = useState(false);
+
+  const changeBackgroundColor = () => {
+    if (window.scrollY > 10) {
+      setChangColor(true);
+    } else {
+      setChangColor(false);
+    }
+  };
+
+  useEffect(() => {
+    changeBackgroundColor();
+
+    window.addEventListener("scroll", changeBackgroundColor);
+  });
+
   return (
     <div>
-      <Navbar expand="lg" className="">
+      <Navbar expand="lg" className={changeColor ? "color-active" : ""}>
         <Container>
           <Navbar.Brand href="/" className="fs-3 fw-bold">
-            K!$ut.
+            <img src={logos} alt="" style={{ width: "60px" }} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -19,7 +38,7 @@ const Navbars = () => {
             </Nav>
 
             <div className="text-center">
-              <button className="btn btn-outline-danger rounded-1">
+              <button className="btn btn-outline-dark rounded-1">
                 Join With Us
               </button>
             </div>
