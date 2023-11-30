@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logos from "./../img/logo2.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import logos from "./../img/logo1.png";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const Navbars = () => {
   const [changeColor, setChangColor] = useState(false);
@@ -30,7 +31,9 @@ const Navbars = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="nav-link mx-auto text-center">
-              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/">
+                <FontAwesomeIcon icon={faHouse} /> Home
+              </Nav.Link>
               <Nav.Link href="/kelas">Kelas</Nav.Link>
               <Nav.Link href="/testi">Testimoni</Nav.Link>
               <Nav.Link href="/faq">FAQ</Nav.Link>
