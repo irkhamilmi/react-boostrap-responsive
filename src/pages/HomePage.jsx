@@ -2,6 +2,15 @@ import { Container, Row, Col } from "react-bootstrap";
 import heroImg from "./../img/heroes.png";
 import { konten } from "./../data/data.js";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+// import required modules
+import { Pagination } from "swiper/modules";
+
 function HomePage() {
   return (
     <>
@@ -12,9 +21,8 @@ function HomePage() {
               <Col lg="6">
                 <h1 className="mb-4">
                   Terima jasa
-                  <br /> <span>Pembuatan Website & </span>
+                  <br /> <span>Pembuatan Website </span>
                   <br />
-                  Renovasi Website
                 </h1>
                 <p className="mb-4">
                   Mari membuat website dengan harga terjangkau baik dari
@@ -60,6 +68,50 @@ function HomePage() {
                   </Col>
                 );
               })}
+            </Row>
+          </Container>
+        </div>
+        <div className="testi py-5">
+          <Container>
+            <Row>
+              <Col>
+                <h1 className="text-center fw-bold my-5">Testimonial</h1>
+              </Col>
+            </Row>
+            <Row>
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                pagination={{
+                  clickable: true,
+                }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                  },
+                  1024: {
+                    slidesPerView: 5,
+                    spaceBetween: 50,
+                  },
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+              >
+                <SwiperSlide>Slide 1</SwiperSlide>
+                <SwiperSlide>Slide 2</SwiperSlide>
+                <SwiperSlide>Slide 3</SwiperSlide>
+                <SwiperSlide>Slide 4</SwiperSlide>
+                <SwiperSlide>Slide 5</SwiperSlide>
+                <SwiperSlide>Slide 6</SwiperSlide>
+                <SwiperSlide>Slide 7</SwiperSlide>
+                <SwiperSlide>Slide 8</SwiperSlide>
+                <SwiperSlide>Slide 9</SwiperSlide>
+              </Swiper>
             </Row>
           </Container>
         </div>
